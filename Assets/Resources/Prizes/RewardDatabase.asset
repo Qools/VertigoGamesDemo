@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6fcc0b588c8f264e825a62b4b5b029d, type: 3}
+  m_Name: RewardDatabase
+  m_EditorClassIdentifier: 
+  basicPrizes:
+  - {fileID: 11400000, guid: 20247e148c9943246bdea6fb6b9c92a9, type: 2}
+  - {fileID: 11400000, guid: 0dc08a41c328aa747b6feb5d094dfd86, type: 2}
+  - {fileID: 11400000, guid: fc4c77fdd6d346240a1e25073ed0c229, type: 2}
+  - {fileID: 11400000, guid: 302454ad6bb8d4d48862e81a14b20a8c, type: 2}
+  - {fileID: 11400000, guid: 3e452beffae377c49b944d0cf420fe6f, type: 2}
+  - {fileID: 11400000, guid: 5dedad9db5ae3aa41a2e9b56c1cc01f6, type: 2}
+  epicPrizes: []
