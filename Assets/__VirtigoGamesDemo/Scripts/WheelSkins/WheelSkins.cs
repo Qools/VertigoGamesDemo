@@ -10,5 +10,5 @@ public class WheelSkins : ScriptableObject
     public Sprite indicatorSprite;
 
     [Header("Reward Type")]
-    public RewardType rewardType;
+    public RewardSetType rewardType;
 }

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c7412f9a659ea44b9498b33e050c64, type: 3}
   m_Name: ArmorPoints
   m_EditorClassIdentifier: 
+  rewardType: 3
   Icon: {fileID: 21300000, guid: f0281070fb98c1d4b950219f1944cb9e, type: 3}
   Label: Armor Points
   isBomb: 0

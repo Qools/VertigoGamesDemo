@@ -8,13 +8,13 @@ public class RewardsSet : ScriptableObject
     [Header("Reward Set")]
     public List<Reward> rewards = new List<Reward>();
 
-    public RewardType rewardType;
+    public RewardSetType rewardSetType;
 }
 
 
-public enum RewardType
+public enum RewardSetType
 {
-    basic,
-    legendary,
-    epic
+    common,
+    epic,
+    legendary
 }

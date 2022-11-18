@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c7412f9a659ea44b9498b33e050c64, type: 3}
   m_Name: RiflePoints
   m_EditorClassIdentifier: 
+  rewardType: 6
   Icon: {fileID: 21300000, guid: d828604420c793a4b868efd4131861e0, type: 3}
   Label: Rifle Points
   isBomb: 0

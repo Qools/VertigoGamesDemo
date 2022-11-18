@@ -9,14 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0c7412f9a659ea44b9498b33e050c64, type: 3}
-  m_Name: VestPoints
+  m_Script: {fileID: 11500000, guid: 98cbd4a6dd9fc874db7131c444630351, type: 3}
+  m_Name: CommonWheelSkin
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: 46fca3343e536d24fa842207b9ddfad5, type: 3}
-  Label: Vest Points
-  isBomb: 0
-  isEpicReward: 0
-  Amount: 1
-  Chance: 15
-  Index: 0
-  _weight: 0
+  wheelSprite: {fileID: 21300000, guid: 5e072f97a550dee49b57f26be04e73e7, type: 3}
+  indicatorSprite: {fileID: 21300000, guid: c209afc22f6879b4da4b5331c5d5ef8a, type: 3}
+  rewardType: 0

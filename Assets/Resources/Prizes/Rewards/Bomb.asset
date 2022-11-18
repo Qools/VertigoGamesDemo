@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c7412f9a659ea44b9498b33e050c64, type: 3}
   m_Name: Bomb
   m_EditorClassIdentifier: 
+  rewardType: 2
   Icon: {fileID: 21300000, guid: 51bd361d4005fb24b92acc248108d314, type: 3}
   Label: Bomb
   isBomb: 1

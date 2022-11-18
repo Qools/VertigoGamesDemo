@@ -43,7 +43,8 @@ public class PopUpScreen : MonoBehaviour
 
         amountText.text = _reward.Amount.ToString();
 
-        DOVirtual.DelayedCall(openingDelay, ()=> EnablePopUpScreen(true, openingDuration));
+        DOVirtual.DelayedCall(openingDelay, ()=> EnablePopUpScreen(true, openingDuration))
+            .OnComplete(()=> BusSystem.CallPopUpScreenOpened(_reward));
     }
 
     private void OnSpinStart()

@@ -9,15 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0c7412f9a659ea44b9498b33e050c64, type: 3}
-  m_Name: Coins
+  m_Script: {fileID: 11500000, guid: 98cbd4a6dd9fc874db7131c444630351, type: 3}
+  m_Name: LegendaryWheelSkin
   m_EditorClassIdentifier: 
-  rewardType: 1
-  Icon: {fileID: 21300000, guid: 53328055bb5a67541adbbf0594f77b98, type: 3}
-  Label: Coins
-  isBomb: 0
-  isEpicReward: 0
-  Amount: 10
-  Chance: 15
-  Index: 0
-  _weight: 0
+  wheelSprite: {fileID: 21300000, guid: c741ea93786d9014296cccd8a7520430, type: 3}
+  indicatorSprite: {fileID: 21300000, guid: e75155f39c789424bbaf9fd05036e73c, type: 3}
+  rewardType: 2

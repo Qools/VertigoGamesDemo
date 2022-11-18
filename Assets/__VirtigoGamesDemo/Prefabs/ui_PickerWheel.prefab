@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: 224511889338460380}
   - component: {fileID: 82771466526599974}
   - component: {fileID: 114361574848870256}
+  - component: {fileID: 8054123731279714109}
   m_Layer: 0
   m_Name: ui_PickerWheel
   m_TagString: Untagged
@@ -405,6 +406,21 @@ MonoBehaviour:
   spinDuration: 20
   wheelSize: 1
   wheelPieceDatabase: {fileID: 0}
+--- !u!114 &8054123731279714109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323661475590176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc7d51f92a6b644984c6606c5b7a45b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelSkinsDatabase: {fileID: 11400000, guid: 1cfb008927b4fc74185647dc979dcf3e, type: 2}
+  wheelImage: {fileID: 114421503001311998}
+  indicatorImage: {fileID: 114248363383226992}
 --- !u!1 &1743374398951528
 GameObject:
   m_ObjectHideFlags: 0
