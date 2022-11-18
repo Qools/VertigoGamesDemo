@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class PlayerPrefKeys
 {
-
+    public const string currentZone = "CurrentZone";
 }

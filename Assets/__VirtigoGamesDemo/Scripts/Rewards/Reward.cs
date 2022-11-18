@@ -1,7 +1,7 @@
 ﻿using UnityEngine ;
 
 [CreateAssetMenu(fileName = "NewPrize", menuName = "Prizes/NewPrize", order = 0)]
-public class WheelPiece : ScriptableObject
+public class Reward : ScriptableObject
 {
     public Sprite Icon;
     public string Label;

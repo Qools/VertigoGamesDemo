@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0c7412f9a659ea44b9498b33e050c64, type: 3}
-  m_Name: Reward2
+  m_Name: Coins
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: 1f6e7aeaa9f09f440a922092c4dd3747, type: 3}
-  Label: KnifePoints
+  Icon: {fileID: 21300000, guid: 53328055bb5a67541adbbf0594f77b98, type: 3}
+  Label: Coins
   isBomb: 0
   isEpicReward: 0
-  Amount: 1
+  Amount: 10
   Chance: 15
   Index: 0
   _weight: 0

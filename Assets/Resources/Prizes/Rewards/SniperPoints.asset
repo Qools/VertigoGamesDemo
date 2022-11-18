@@ -9,8 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6fcc0b588c8f264e825a62b4b5b029d, type: 3}
-  m_Name: RewardDatabase
+  m_Script: {fileID: 11500000, guid: d0c7412f9a659ea44b9498b33e050c64, type: 3}
+  m_Name: SniperPoints
   m_EditorClassIdentifier: 
-  rewardSets:
-  - {fileID: 11400000, guid: d8b4846bb8102bc45ac362c34c733142, type: 2}
+  Icon: {fileID: 21300000, guid: 2e26b16429a61d245b40534d65e9ff22, type: 3}
+  Label: Sniper Points
+  isBomb: 0
+  isEpicReward: 0
+  Amount: 1
+  Chance: 15
+  Index: 7
+  _weight: 115

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0c7412f9a659ea44b9498b33e050c64, type: 3}
-  m_Name: Reward4
+  m_Name: SmgPoints
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: d828604420c793a4b868efd4131861e0, type: 3}
-  Label: RiflePoints
+  Icon: {fileID: 21300000, guid: 876151bc5a1d43c4599e5156536b9443, type: 3}
+  Label: SMG Points
   isBomb: 0
   isEpicReward: 0
   Amount: 1
   Chance: 15
-  Index: 0
-  _weight: 0
+  Index: 6
+  _weight: 100
