@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rewardSets:
   - {fileID: 11400000, guid: d8b4846bb8102bc45ac362c34c733142, type: 2}
+  - {fileID: 11400000, guid: d8b4846bb8102bc45ac362c34c733142, type: 2}
+  - {fileID: 11400000, guid: d8b4846bb8102bc45ac362c34c733142, type: 2}
+  - {fileID: 11400000, guid: d8b4846bb8102bc45ac362c34c733142, type: 2}

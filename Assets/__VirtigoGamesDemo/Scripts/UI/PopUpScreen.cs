@@ -17,11 +17,16 @@ public class PopUpScreen : MonoBehaviour
     [SerializeField] private TextMeshProUGUI labelText;
     [SerializeField] private Image amountTextIcon;
     [SerializeField] private TextMeshProUGUI amountText;
+    [SerializeField] private GameObject collectButton;
+    [SerializeField] private GameObject retryButton;
 
     // Start is called before the first frame update
     void Start()
     {
         EnablePopUpScreen(false, 0.01f);
+
+        collectButton.SetActive(false);
+        retryButton.SetActive(false);
     }
 
     private void OnEnable()
@@ -43,8 +48,10 @@ public class PopUpScreen : MonoBehaviour
 
         amountText.text = _reward.Amount.ToString();
 
-        DOVirtual.DelayedCall(openingDelay, ()=> EnablePopUpScreen(true, openingDuration))
-            .OnComplete(()=> BusSystem.CallPopUpScreenOpened(_reward));
+        collectButton.SetActive(!(_reward.isBomb));
+        retryButton.SetActive(_reward.isBomb);
+
+        DOVirtual.DelayedCall(openingDelay, () => EnablePopUpScreen(true, openingDuration));
     }
 
     private void OnSpinStart()
@@ -63,7 +70,35 @@ public class PopUpScreen : MonoBehaviour
 
         if (!(container is null))
         {
-            container.transform.DOScale(endScale, openingDuration);
+            container.transform.DOScale(endScale, _duration);
+        }
+    }
+
+    private void OnValidate()
+    {
+        if (!(collectButton is null))
+        {
+            if (collectButton.TryGetComponent(out Button _collectButton))
+            {
+                _collectButton.onClick.AddListener(() =>
+                {
+                    BusSystem.CallPopUpCollectButtonClicked();
+                    EnablePopUpScreen(false, 0.01f);
+                });
+            }
+        }
+
+
+        if (!(retryButton is null))
+        {
+            if (retryButton.TryGetComponent(out Button _retryButton))
+            {
+                _retryButton.onClick.AddListener(() =>
+                { 
+                    BusSystem.CallGameOver();
+                    EnablePopUpScreen(false, 0.01f);
+                });
+            }
         }
     }
 }

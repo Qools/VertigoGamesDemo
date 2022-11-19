@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3acd52123a2c694fa2763ad0f796536, type: 3}
+  m_Name: TopBarColors
+  m_EditorClassIdentifier: 
+  topBarSprites:
+  - {fileID: 21300000, guid: 74a423c3ec05a4a418d1e628e45f6ebd, type: 3}
+  - {fileID: 21300000, guid: d854769aeadadc44f8a45d0faf684a30, type: 3}
+  - {fileID: 21300000, guid: 686f48a6d6cc04a44b51770fa4a476c0, type: 3}

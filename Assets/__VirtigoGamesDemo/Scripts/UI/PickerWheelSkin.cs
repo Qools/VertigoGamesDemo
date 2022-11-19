@@ -13,33 +13,37 @@ public class PickerWheelSkin : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(Co_GetController());
+    }
+
+    private IEnumerator Co_GetController()
+    {
+        yield return new WaitWhile(() => WheelPickerController.Instance == null);
+
         ChangeWheelSkin(0);
     }
 
     private void OnEnable()
     {
-        BusSystem.OnPopUpScreenOpened += CheckWheelSkin;
+        BusSystem.OnPopUpCollectButtonClicked += CheckWheelSkin;
+        BusSystem.OnGameOver += ResetWheelSkin;
     }
 
     private void OnDisable()
     {
-        BusSystem.OnPopUpScreenOpened -= CheckWheelSkin;
+        BusSystem.OnPopUpCollectButtonClicked -= CheckWheelSkin;
+        BusSystem.OnGameOver -= ResetWheelSkin;
     }
 
-    private void CheckWheelSkin(Reward _reward)
+    private void CheckWheelSkin()
     {
-        int mod5 = WheelPickerController.Instance.currentZone % 5;
-        int mod30 = WheelPickerController.Instance.currentZone % 30;
 
-        Debug.Log("mod 5" + mod5);
-        Debug.Log("mod 30 " + mod30);
-
-        if (mod5 == 0)
+        if (WheelPickerController.Instance.CheckZoneCondition(5) == 0)
         {
             ChangeWheelSkin(1);
         }
 
-        else if(mod30 == 0)
+        else if(WheelPickerController.Instance.CheckZoneCondition(30) == 0)
         {
             ChangeWheelSkin(2);
         }
@@ -54,5 +58,11 @@ public class PickerWheelSkin : MonoBehaviour
     {
         wheelImage.sprite = wheelSkinsDatabase.wheelSkins[_index].wheelSprite;
         indicatorImage.sprite = wheelSkinsDatabase.wheelSkins[_index].indicatorSprite;
+    }
+
+    private void ResetWheelSkin()
+    {
+        wheelImage.sprite = wheelSkinsDatabase.wheelSkins[0].wheelSprite;
+        indicatorImage.sprite = wheelSkinsDatabase.wheelSkins[0].indicatorSprite;
     }
 }

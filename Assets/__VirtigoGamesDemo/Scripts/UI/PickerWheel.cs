@@ -1,7 +1,7 @@
 ﻿using UnityEngine ;
 using UnityEngine.UI ;
 using DG.Tweening ;
-using UnityEngine.Events ;
+using System.Collections;
 using System.Collections.Generic ;
 
 public class PickerWheel : MonoBehaviour
@@ -51,10 +51,16 @@ public class PickerWheel : MonoBehaviour
 
     private List<int> nonZeroChancesIndices = new List<int>();
 
-    
+    [SerializeField] private Button spinButton;
 
     private void Start()
     {
+        StartCoroutine(Co_GetController());
+    }
+
+    private IEnumerator Co_GetController()
+    {
+        yield return new WaitWhile(() => WheelPickerController.Instance == null);
 
         ReSizePieceAngle();
 
@@ -66,6 +72,16 @@ public class PickerWheel : MonoBehaviour
 
 
         SetupAudio();
+    }
+
+    private void OnEnable()
+    {
+        BusSystem.OnGameOver += Generate;
+    }
+
+    private void OnDisable()
+    {
+        BusSystem.OnGameOver -= Generate;
     }
 
     private void SetupAudio()
@@ -203,7 +219,12 @@ public class PickerWheel : MonoBehaviour
 
     private void OnValidate()
     {
-        if (PickerWheelTransform != null)
+        if (!(PickerWheelTransform is null))
             PickerWheelTransform.localScale = new Vector3(wheelSize, wheelSize, 1f);
+
+        if (!(spinButton is null))
+        {
+            spinButton.onClick.AddListener(() => Spin());
+        }
     }
 }

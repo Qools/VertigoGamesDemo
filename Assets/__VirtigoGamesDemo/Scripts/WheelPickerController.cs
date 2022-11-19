@@ -8,11 +8,11 @@ public class WheelPickerController : MonoBehaviour
 
     public List<Reward> takenRewards = new List<Reward>();
 
-    public int currentZone = 0;
+    public int currentZone;
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (!(Instance is null) && Instance != this)
         {
             Destroy(this);
         }
@@ -24,7 +24,7 @@ public class WheelPickerController : MonoBehaviour
 
     private void Start()
     {
-        currentZone = Utility.GetIntValue(PlayerPrefKeys.currentZone);
+        currentZone = 1;
     }
 
     private void OnEnable()
@@ -47,16 +47,22 @@ public class WheelPickerController : MonoBehaviour
 
         AddReward(_reward);
         currentZone++;
+
+        BusSystem.CallZoneEnded();
     }
 
     private void GameOver()
     {
-        currentZone = 0;
-        Utility.SetIntValue(PlayerPrefKeys.currentZone, 0);
+        currentZone = 1;
 
         takenRewards.Clear();
         takenRewards = new List<Reward>();
     }
+
+    public int CheckZoneCondition(int condition)
+    {
+        return currentZone % condition;
+    } 
 
     public void AddReward(Reward _reward)
     {

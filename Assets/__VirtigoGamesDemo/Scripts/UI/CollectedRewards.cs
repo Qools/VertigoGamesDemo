@@ -13,6 +13,8 @@ public class CollectedRewards : MonoBehaviour
 
     public List<Reward> collectedRewards = new List<Reward>();
 
+    private Reward currentReward;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,28 +23,25 @@ public class CollectedRewards : MonoBehaviour
 
     private void OnEnable()
     {
-        BusSystem.OnPopUpScreenOpened += OnPopScreenOpened;
+        BusSystem.OnSpinEnd += OnSpinEnd;
+        BusSystem.OnPopUpCollectButtonClicked += CreateRewardTab; 
+        BusSystem.OnGameOver += ClearRewards;
     }
 
     private void OnDisable()
     {
-        BusSystem.OnPopUpScreenOpened -= OnPopScreenOpened;
+        BusSystem.OnSpinEnd -= OnSpinEnd;
+        BusSystem.OnPopUpCollectButtonClicked += CreateRewardTab;
+        BusSystem.OnGameOver += ClearRewards;
     }
 
-    private void OnPopScreenOpened(Reward _reward)
+    private void OnSpinEnd(Reward _reward)
     {
-        if (_reward.isBomb)
-        {
-            ClearRewards();
-            return;
-        }
-
         collectedRewards.Add(_reward);
-
-        CreateRewardTab(_reward);
+        currentReward = _reward;
     }
 
-    private void CreateRewardTab(Reward _reward)
+    private void CreateRewardTab()
     {
         //foreach (var collectedReward in collectedRewards)
         //{
@@ -53,8 +52,8 @@ public class CollectedRewards : MonoBehaviour
         //}
 
         GameObject newRewardTab = Instantiate(rewardTabPrefab, container.transform.position, Quaternion.identity, container.transform);
-        newRewardTab.transform.GetChild(0).GetComponent<Image>().sprite = _reward.Icon;
-        newRewardTab.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = _reward.Amount.ToString();
+        newRewardTab.transform.GetChild(0).GetComponent<Image>().sprite = currentReward.Icon;
+        newRewardTab.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = currentReward.Amount.ToString();
     }
 
     private void ClearRewards()
@@ -62,7 +61,7 @@ public class CollectedRewards : MonoBehaviour
         var allChildren = container.GetComponentsInChildren<Transform>().Where(t => t != container.transform);
         foreach (var child in allChildren)
         {
-            //Destroy(child);
+            Destroy(child.gameObject);
         }
 
         collectedRewards.Clear();
