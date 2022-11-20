@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0c7412f9a659ea44b9498b33e050c64, type: 3}
-  m_Name: Bomb
+  m_Name: Knife Skin
   m_EditorClassIdentifier: 
-  rewardType: 2
-  Icon: {fileID: 21300000, guid: 51bd361d4005fb24b92acc248108d314, type: 3}
-  Label: Bomb
-  isBomb: 1
+  rewardType: 11
+  Icon: {fileID: 21300000, guid: bba79981501929d4f883ef05ffbf79d0, type: 3}
+  Label: Knife Skin
+  isBomb: 0
   isEpicReward: 0
-  Amount: 0
-  Chance: 15
+  Amount: 1
+  Chance: 10
   Index: 0
-  _weight: 10
+  _weight: 0

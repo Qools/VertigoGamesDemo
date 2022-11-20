@@ -17,16 +17,38 @@ public class PopUpScreen : MonoBehaviour
     [SerializeField] private TextMeshProUGUI labelText;
     [SerializeField] private Image amountTextIcon;
     [SerializeField] private TextMeshProUGUI amountText;
-    [SerializeField] private GameObject collectButton;
-    [SerializeField] private GameObject retryButton;
+    [SerializeField] private GameObject collectButtonGameObject;
+    [SerializeField] private GameObject retryButtonButtonGameObject;
+
+    [SerializeField] private Button collectButton;
+    [SerializeField] private Button retryButton;
 
     // Start is called before the first frame update
     void Start()
     {
         EnablePopUpScreen(false, 0.01f);
 
-        collectButton.SetActive(false);
-        retryButton.SetActive(false);
+        collectButtonGameObject.SetActive(false);
+        retryButtonButtonGameObject.SetActive(false);
+
+
+        if (collectButton != null)
+        {
+            collectButton.onClick.AddListener(() =>
+            {
+                BusSystem.CallPopUpCollectButtonClicked();
+                EnablePopUpScreen(false, 0.01f);
+            });
+        }
+
+        if (retryButton != null)
+        {
+            retryButton.onClick.AddListener(() =>
+            {
+                BusSystem.CallGameOver();
+                EnablePopUpScreen(false, 0.01f);
+            });
+        }
     }
 
     private void OnEnable()
@@ -48,8 +70,11 @@ public class PopUpScreen : MonoBehaviour
 
         amountText.text = _reward.Amount.ToString();
 
-        collectButton.SetActive(!(_reward.isBomb));
-        retryButton.SetActive(_reward.isBomb);
+        amountTextIcon.gameObject.SetActive(!(_reward.isBomb));
+        labelText.gameObject.SetActive(!(_reward.isBomb));
+
+        collectButtonGameObject.SetActive(!(_reward.isBomb));
+        retryButtonButtonGameObject.SetActive(_reward.isBomb);
 
         DOVirtual.DelayedCall(openingDelay, () => EnablePopUpScreen(true, openingDuration));
     }
@@ -68,7 +93,7 @@ public class PopUpScreen : MonoBehaviour
             endScale = Vector3.zero;
         }
 
-        if (!(container is null))
+        if (container != null)
         {
             container.transform.DOScale(endScale, _duration);
         }
@@ -76,28 +101,19 @@ public class PopUpScreen : MonoBehaviour
 
     private void OnValidate()
     {
-        if (!(collectButton is null))
+        if (collectButtonGameObject != null)
         {
-            if (collectButton.TryGetComponent(out Button _collectButton))
+            if (collectButtonGameObject.TryGetComponent(out Button _collectButton))
             {
-                _collectButton.onClick.AddListener(() =>
-                {
-                    BusSystem.CallPopUpCollectButtonClicked();
-                    EnablePopUpScreen(false, 0.01f);
-                });
+                collectButton = _collectButton;
             }
         }
 
-
-        if (!(retryButton is null))
+        if (retryButtonButtonGameObject != null)
         {
-            if (retryButton.TryGetComponent(out Button _retryButton))
+            if (retryButtonButtonGameObject.TryGetComponent(out Button _retryButton))
             {
-                _retryButton.onClick.AddListener(() =>
-                { 
-                    BusSystem.CallGameOver();
-                    EnablePopUpScreen(false, 0.01f);
-                });
+                retryButton = _retryButton;
             }
         }
     }

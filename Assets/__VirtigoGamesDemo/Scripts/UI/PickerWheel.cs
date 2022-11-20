@@ -51,7 +51,10 @@ public class PickerWheel : MonoBehaviour
 
     private List<int> nonZeroChancesIndices = new List<int>();
 
+    [SerializeField] private GameObject spinButtonGameObject;
     [SerializeField] private Button spinButton;
+
+    private List<GameObject> pieces = new List<GameObject>();
 
     private void Start()
     {
@@ -70,18 +73,24 @@ public class PickerWheel : MonoBehaviour
         if (nonZeroChancesIndices.Count == 0)
             Debug.LogError("You can't set all pieces chance to zero");
 
-
         SetupAudio();
+
+        if (spinButton != null)
+        {
+            spinButton.onClick.AddListener(() => Spin());
+        }
     }
 
     private void OnEnable()
     {
         BusSystem.OnGameOver += Generate;
+        BusSystem.OnPopUpCollectButtonClicked += Generate;
     }
 
     private void OnDisable()
     {
         BusSystem.OnGameOver -= Generate;
+        BusSystem.OnPopUpCollectButtonClicked -= Generate;
     }
 
     private void SetupAudio()
@@ -100,7 +109,8 @@ public class PickerWheel : MonoBehaviour
 
     private void Generate()
     {
-        wheelPiecePrefab = InstantiatePiece();
+        ResetWheelRotation();
+        DeleteOldPieces();
 
         RectTransform rt = wheelPiecePrefab.transform.GetChild(0).GetComponent<RectTransform>();
         float pieceWidth = Mathf.Lerp(pieceMinSize.x, pieceMaxSize.x, 1f - Mathf.InverseLerp(piecesMin, piecesMax, wheelPieceDatabase.rewardSets[WheelPickerController.Instance.currentZone].rewards.Count));
@@ -110,23 +120,24 @@ public class PickerWheel : MonoBehaviour
 
         for (int i = 0; i < wheelPieceDatabase.rewardSets[WheelPickerController.Instance.currentZone].rewards.Count; i++)
             DrawPiece(i);
-
-        Destroy(wheelPiecePrefab);
     }
 
     private void DrawPiece(int index)
     {
         Reward piece = wheelPieceDatabase.rewardSets[WheelPickerController.Instance.currentZone].rewards[index];
-        Transform pieceTrns = InstantiatePiece().transform.GetChild(0);
+        GameObject newPiece = InstantiatePiece(wheelPiecePrefab);
+        Transform pieceTrns = newPiece.transform.GetChild(0);
+
+        pieces.Add(newPiece);
 
         pieceTrns.GetChild(0).GetComponent<Image>().sprite = piece.Icon;
 
         pieceTrns.RotateAround(wheelPiecesParent.position, Vector3.back, pieceAngle * index);
     }
 
-    private GameObject InstantiatePiece()
+    private GameObject InstantiatePiece(GameObject _preFab)
     {
-        return Instantiate(wheelPiecePrefab, wheelPiecesParent.position, Quaternion.identity, wheelPiecesParent);
+        return Instantiate(_preFab, wheelPiecesParent.position, Quaternion.identity, wheelPiecesParent);
     }
 
 
@@ -219,12 +230,28 @@ public class PickerWheel : MonoBehaviour
 
     private void OnValidate()
     {
-        if (!(PickerWheelTransform is null))
+        if (PickerWheelTransform != null)
             PickerWheelTransform.localScale = new Vector3(wheelSize, wheelSize, 1f);
 
-        if (!(spinButton is null))
+        if (spinButtonGameObject != null)
         {
-            spinButton.onClick.AddListener(() => Spin());
+            if (spinButtonGameObject.TryGetComponent(out Button button))
+            {
+                spinButton = button;
+            }
         }
+    }
+
+    private void DeleteOldPieces()
+    {
+        foreach (var _pieces in pieces)
+        {
+            Destroy(_pieces);
+        }
+    }
+
+    private void ResetWheelRotation()
+    {
+        wheelCircle.eulerAngles = Vector3.zero;
     }
 }

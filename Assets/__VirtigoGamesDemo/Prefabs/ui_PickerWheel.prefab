@@ -282,6 +282,8 @@ MonoBehaviour:
   spinDuration: 20
   wheelSize: 1
   wheelPieceDatabase: {fileID: 11400000, guid: 04d3e3afe4649de41bddf60cab2f3f4c, type: 2}
+  spinButtonGameObject: {fileID: 0}
+  spinButton: {fileID: 0}
 --- !u!114 &8054123731279714109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,7 +386,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224747704442984086}
   m_Layer: 0
-  m_Name: ui_pickerWheel_spinningCircle_wheelPieces
+  m_Name: ui_pickerWheel_spinningCircle_wheelPiecesParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

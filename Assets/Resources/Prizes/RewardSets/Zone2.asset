@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80aa6f2368b020c43bc7232f48cb9d94, type: 3}
-  m_Name: Zone1
+  m_Name: Zone2
   m_EditorClassIdentifier: 
   rewards:
   - {fileID: 11400000, guid: 20247e148c9943246bdea6fb6b9c92a9, type: 2}
-  - {fileID: 11400000, guid: 6390498bd4cd5d2458fb267a17f2a47d, type: 2}
+  - {fileID: 11400000, guid: 0dc08a41c328aa747b6feb5d094dfd86, type: 2}
   - {fileID: 11400000, guid: fc4c77fdd6d346240a1e25073ed0c229, type: 2}
-  - {fileID: 11400000, guid: b90c190db0f6c454182d80214f0e7e7f, type: 2}
+  - {fileID: 11400000, guid: 6390498bd4cd5d2458fb267a17f2a47d, type: 2}
   - {fileID: 11400000, guid: 3e452beffae377c49b944d0cf420fe6f, type: 2}
-  - {fileID: 11400000, guid: 5dedad9db5ae3aa41a2e9b56c1cc01f6, type: 2}
+  - {fileID: 11400000, guid: b90c190db0f6c454182d80214f0e7e7f, type: 2}
   - {fileID: 11400000, guid: b4a3468ef731ef640b0c7cc83f0e72a3, type: 2}
   - {fileID: 11400000, guid: 4902307c13916574e8275fc72fa435f0, type: 2}
   rewardSetType: 0

@@ -85,6 +85,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1921271209453106279}
+  - component: {fileID: 5978596676594950394}
   m_Layer: 5
   m_Name: rewardTab
   m_TagString: Untagged
@@ -114,6 +115,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5978596676594950394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921271209453106278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cd8b5e9a42893748a7df1a3d75ea523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectedReward:
+    rewardType: 0
+    Icon: {fileID: 0}
+    Amount: 0
 --- !u!1 &1921271210082028515
 GameObject:
   m_ObjectHideFlags: 0

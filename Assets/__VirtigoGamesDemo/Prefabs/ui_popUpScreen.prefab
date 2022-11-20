@@ -776,8 +776,8 @@ MonoBehaviour:
   labelText: {fileID: 7638808193381236747}
   amountTextIcon: {fileID: 7638808193264585067}
   amountText: {fileID: 7638808193249323877}
-  collectButton: {fileID: 1006844581076561321}
-  retryButton: {fileID: 1472804812069731340}
+  collectButtonGameObject: {fileID: 1006844581076561321}
+  retryButtonButtonGameObject: {fileID: 1472804812069731340}
 --- !u!1 &7638808193249323875
 GameObject:
   m_ObjectHideFlags: 0

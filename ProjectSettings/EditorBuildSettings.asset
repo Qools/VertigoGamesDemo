@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/__VirtigoGamesDemo/Scenes/DemoScene.unity
+    guid: 5c5df2a1b7d5b5b4595564f5830af272
   m_configObjects: {}

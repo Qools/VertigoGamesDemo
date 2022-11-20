@@ -22,7 +22,7 @@ public class TopBar : MonoBehaviour
     {
         yield return new WaitWhile(()=> WheelPickerController.Instance == null);
 
-        CheckGameZone();
+        ChangeTopBarSprite(0);
         ChangeTopBarText();
     }
 
@@ -65,12 +65,12 @@ public class TopBar : MonoBehaviour
 
     private void ChangeTopBarText()
     {
-        topBarText.text = WheelPickerController.Instance.currentZone.ToString();
+        topBarText.text = (WheelPickerController.Instance.currentZone + 1).ToString();
     }
 
     private void ResetTopBarValues()
     {
-        topBarText.text = WheelPickerController.Instance.currentZone.ToString();
+        topBarText.text = (WheelPickerController.Instance.currentZone + 1).ToString();
         topBarBackgroundImage.sprite = topBarColors.topBarSprites[0];
     }
 }

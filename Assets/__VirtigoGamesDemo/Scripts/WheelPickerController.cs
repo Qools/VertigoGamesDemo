@@ -12,7 +12,7 @@ public class WheelPickerController : MonoBehaviour
 
     private void Awake()
     {
-        if (!(Instance is null) && Instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(this);
         }
@@ -24,7 +24,7 @@ public class WheelPickerController : MonoBehaviour
 
     private void Start()
     {
-        currentZone = 1;
+        currentZone = 0;
     }
 
     private void OnEnable()
@@ -53,7 +53,7 @@ public class WheelPickerController : MonoBehaviour
 
     private void GameOver()
     {
-        currentZone = 1;
+        currentZone = 0;
 
         takenRewards.Clear();
         takenRewards = new List<Reward>();
