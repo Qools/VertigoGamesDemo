@@ -584,7 +584,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 51bd361d4005fb24b92acc248108d314, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -778,6 +778,8 @@ MonoBehaviour:
   amountText: {fileID: 7638808193249323877}
   collectButtonGameObject: {fileID: 1006844581076561321}
   retryButtonButtonGameObject: {fileID: 1472804812069731340}
+  collectButton: {fileID: 1752661881187440921}
+  retryButton: {fileID: 1696922699122968146}
 --- !u!1 &7638808193249323875
 GameObject:
   m_ObjectHideFlags: 0

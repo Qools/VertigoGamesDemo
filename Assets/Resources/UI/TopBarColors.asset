@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TopBarColors
   m_EditorClassIdentifier: 
   topBarSprites:
-  - {fileID: 21300000, guid: 74a423c3ec05a4a418d1e628e45f6ebd, type: 3}
   - {fileID: 21300000, guid: d854769aeadadc44f8a45d0faf684a30, type: 3}
+  - {fileID: 21300000, guid: 74a423c3ec05a4a418d1e628e45f6ebd, type: 3}
   - {fileID: 21300000, guid: 686f48a6d6cc04a44b51770fa4a476c0, type: 3}
