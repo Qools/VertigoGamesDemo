@@ -61,7 +61,7 @@ public class WheelPickerController : MonoBehaviour
 
     public int CheckZoneCondition(int condition)
     {
-        return currentZone % condition;
+        return (currentZone + 1) % condition;
     } 
 
     public void AddReward(Reward _reward)
